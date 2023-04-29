@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user_jog %>
+
+<div>
+  <%= link_to "Edit this user jog", edit_user_jog_path(@user_jog) %> |
+  <%= link_to "Back to user jogs", user_jogs_path %>
+
+  <%= button_to "Destroy this user jog", @user_jog, method: :delete %>
+</div>

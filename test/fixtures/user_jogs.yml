@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  jogging_date: 2023-04-29
+  jogging_time: 2023-04-29 19:56:19
+  distance: 1.5
+  created_by: 1
+  deleted: false
+  deleted_by: 1
+  deleted_at: MyString
+  : 2023-04-29 19:56:19
+
+two:
+  user: two
+  jogging_date: 2023-04-29
+  jogging_time: 2023-04-29 19:56:19
+  distance: 1.5
+  created_by: 1
+  deleted: false
+  deleted_by: 1
+  deleted_at: MyString
+  : 2023-04-29 19:56:19

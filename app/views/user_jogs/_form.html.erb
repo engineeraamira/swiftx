@@ -1,0 +1,62 @@
+<%= form_with(model: user_jog) do |form| %>
+  <% if user_jog.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user_jog.errors.count, "error") %> prohibited this user_jog from being saved:</h2>
+
+      <ul>
+        <% user_jog.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :jogging_date, style: "display: block" %>
+    <%= form.date_field :jogging_date %>
+  </div>
+
+  <div>
+    <%= form.label :jogging_time, style: "display: block" %>
+    <%= form.time_field :jogging_time %>
+  </div>
+
+  <div>
+    <%= form.label :distance, style: "display: block" %>
+    <%= form.text_field :distance %>
+  </div>
+
+  <div>
+    <%= form.label :created_by, style: "display: block" %>
+    <%= form.number_field :created_by %>
+  </div>
+
+  <div>
+    <%= form.label :deleted, style: "display: block" %>
+    <%= form.check_box :deleted %>
+  </div>
+
+  <div>
+    <%= form.label :deleted_by, style: "display: block" %>
+    <%= form.number_field :deleted_by %>
+  </div>
+
+  <div>
+    <%= form.label :deleted_at, style: "display: block" %>
+    <%= form.text_field :deleted_at %>
+  </div>
+
+  <div>
+    <%= form.label :, style: "display: block" %>
+    <%= form.datetime_field : %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
