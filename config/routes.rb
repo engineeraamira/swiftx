@@ -8,4 +8,16 @@ Rails.application.routes.draw do
 
   get 'add_user' => 'users#add_new'
 
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      root 'users#homepage'
+      resources :users
+      post 'auth_user' => 'authentication#authenticate'
+
+      post 'add_user' => 'users#add_user'
+
+      
+    end
+  end
+
 end

@@ -30,6 +30,9 @@ gem "jbuilder"
 # clearance gem for authentication
 gem 'clearance'
 
+# manage JSON web tokens(jwt)
+gem 'jwt'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
