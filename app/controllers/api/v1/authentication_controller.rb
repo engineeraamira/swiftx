@@ -7,13 +7,11 @@ class Api::V1::AuthenticationController < ApiApplicationController
     # POST /authentication
     # POST /authentication.json
     #=begin
-    # @api {post} /authentication/ 1-authenticate User and generate token
+    # @api {post} /api/v1/auth_user 1-authenticate User and generate token
     # @apiVersion 0.3.0
     # @apiName AuthenticateUser
     # @apiGroup Authentication
     # @apiDescription User Authenticate.
-    # @apiParam {String}     email             User's Email
-    # @apiParam {String}     password          User's Password
     #
     # @apiExample Example usage: 
     # curl -X POST -d email="{Type Your Email}" -d password="{Type Your Password}" http://localhost:3000/api/v1/auth_user      

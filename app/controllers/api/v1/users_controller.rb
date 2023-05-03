@@ -7,13 +7,13 @@ class Api::V1::UsersController < ApiApplicationController
   # =begin
   # @api {post} /api/v1/users/ 1-Register new User 
   # @apiVersion 0.3.0
-  # @apiName postUser
-  # @apiGroup User
+  # @apiName registerUser
+  # @apiGroup Users
   # @apiDescription register new user Only User Role can Register.
   # @apiExample Example usage:       
   # curl -X POST  http://localhost:3000/api/v1/users -H 'cache-control: no-cache' -H 'content-type: application/json' -d '{"user": {"email": "{Type Your Email}", "password": "{Type Your Password}"}}' 
-  # @apiParam {String}     email             User's Email
-  # @apiParam {String}     password          User's Password
+  # @apiBody {String}     email             User's Email
+  # @apiBody {String}     password          User's Password
   #
   # @apiSuccess {Integer}     id                   User's-ID.
   # @apiSuccess {String}      email                User's email.
@@ -50,18 +50,18 @@ class Api::V1::UsersController < ApiApplicationController
   # Add new user 
   # POST /add_user
   # =begin
-  # @api {post} /api/v1/users/ 1-Create new User 
+  # @api {post} /api/v1/add_user/ 2-Create new User 
   # @apiVersion 0.3.0
-  # @apiName postUser
-  # @apiGroup User
+  # @apiName addUser
+  # @apiGroup Users
   # @apiDescription Only Admin Or Managers Roles can Add Users.
   # @apiDescription Admin can Add Admin, Managers or Users.
   # @apiDescription Managers can Add Users.
   # @apiExample Example usage:       
   # curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ZHZ4wk8HgGiyYqalNY-JG9gBTUjsoAQqfTMLVrUYxTs" -X POST  http://localhost:3000/api/v1/add_user -H 'cache-control: no-cache' -H 'content-type: application/json' -d '{"user": {"email": "{Type Your Email}", "password": "{Type Your Password}", "user_group_id": 3}}' 
-  # @apiParam {String}     email             User's Email
-  # @apiParam {String}     password          User's Password
-  # @apiParam {Integer}    Role              User's Role can be 1,2 or 3
+  # @apiBody {String}     email             User's Email
+  # @apiBody {String}     password          User's Password
+  # @apiBody {Integer}    Role              User's Role can be 1,2 or 3
   #
   # @apiSuccess {Integer}     id                   User's-ID.
   # @apiSuccess {String}      email                User's email.
@@ -101,9 +101,9 @@ class Api::V1::UsersController < ApiApplicationController
   end
 
   # =begin
-  # @api {put} /api/v1/users/{:id} 6-Update an existing user
+  # @api {put} /api/v1/users/:id 3-Update an existing user
   # @apiVersion 0.3.0
-  # @apiName PutUsers
+  # @apiName editUsers
   # @apiGroup Users
   # @apiExample Example usage:
   # curl -X PUT \
@@ -117,8 +117,8 @@ class Api::V1::UsersController < ApiApplicationController
   # }'
   # @apiHeader {String} Authorization user unique access key.
   # @apiParam {Number} id user unique id.
-  # @apiParam {String} email user email.
-  # @apiParam {String} password user's password.
+  # @apiBody {String} email user email.
+  # @apiBody {String} password user's password.
   # @apiSuccess {Integer}     id                   User's-ID.
   # @apiSuccess {String}      email                User's email.
   # @apiSuccess {String}      user_group_id        User's Role.
@@ -168,7 +168,7 @@ class Api::V1::UsersController < ApiApplicationController
 
   
   # =begin
-  # @api {Delete} /api/v1/users/{:id} 7-Delete an existing user
+  # @api {Delete} /api/v1/users/:id 4-Delete an existing user
   # @apiVersion 0.3.0
   # @apiName DeleteUser
   # @apiGroup Users
