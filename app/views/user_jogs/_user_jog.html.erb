@@ -1,7 +1,7 @@
 <div id="<%= dom_id user_jog %>">
   <p>
     <strong>User:</strong>
-    <%= user_jog.user_id %>
+    <%= user_jog.user.email %>
   </p>
 
   <p>
@@ -21,27 +21,8 @@
 
   <p>
     <strong>Created by:</strong>
-    <%= user_jog.created_by %>
+    <%= user_jog.createdby.email %>
   </p>
 
-  <p>
-    <strong>Deleted:</strong>
-    <%= user_jog.deleted %>
-  </p>
-
-  <p>
-    <strong>Deleted by:</strong>
-    <%= user_jog.deleted_by %>
-  </p>
-
-  <p>
-    <strong>Deleted at:</strong>
-    <%= user_jog.deleted_at %>
-  </p>
-
-  <p>
-    <strong>:</strong>
-    <%= user_jog. %>
-  </p>
 
 </div>

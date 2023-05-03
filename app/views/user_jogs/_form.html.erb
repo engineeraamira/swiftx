@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
+  <% if ["Admin","Manager"].include? current_user.user_group_id %>
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
+      <%= form.label :user_id, style: "display: block" %>
+      <%= form.collection_select :user_id, User.order(:id),:id,:email, include_blank: true %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.label :jogging_date, style: "display: block" %>
@@ -31,30 +33,7 @@
     <%= form.text_field :distance %>
   </div>
 
-  <div>
-    <%= form.label :created_by, style: "display: block" %>
-    <%= form.number_field :created_by %>
-  </div>
-
-  <div>
-    <%= form.label :deleted, style: "display: block" %>
-    <%= form.check_box :deleted %>
-  </div>
-
-  <div>
-    <%= form.label :deleted_by, style: "display: block" %>
-    <%= form.number_field :deleted_by %>
-  </div>
-
-  <div>
-    <%= form.label :deleted_at, style: "display: block" %>
-    <%= form.text_field :deleted_at %>
-  </div>
-
-  <div>
-    <%= form.label :, style: "display: block" %>
-    <%= form.datetime_field : %>
-  </div>
+ 
 
   <div>
     <%= form.submit %>

@@ -20,22 +20,21 @@
 
   <div>
     <%= form.label :password, style: "display: block" %>
-    <%= form.text_field :password %>
+    <%= form.password_field :password %>
   </div>
 
   <div>
     <%= form.label :user_group_id, style: "display: block" %>
-    <%= form.number_field :user_group_id %>
+    <% if current_user.user_group_id == "Admin" %>
+      <%= form.select(:user_group_id, options_for_select([['Admin', 'Admin'], ['Manager', 'Manager'], ['User', 'User']], :selected => form.object.user_group_id)) %>
+    <% else %>
+      <%= form.select(:user_group_id, options_for_select([['User', 'User']], :selected => form.object.user_group_id)) %>
+    <% end %>
   </div>
 
   <div>
     <%= form.label :status, style: "display: block" %>
     <%= form.check_box :status %>
-  </div>
-
-  <div>
-    <%= form.label :deleted, style: "display: block" %>
-    <%= form.check_box :deleted %>
   </div>
 
   <div>

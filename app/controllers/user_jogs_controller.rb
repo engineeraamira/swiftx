@@ -3,15 +3,18 @@ class UserJogsController < ApplicationController
 
   # GET /user_jogs or /user_jogs.json
   def index
-    if current_user.usergroup == "Admin"
-      @user_jogs = UserJog.all
+    if ["Admin","Manager"].include? current_user.user_group_id
+      @user_jogs = UserJog.where(deleted: 0).all
     else
-      @user_jogs = UserJog.where(user: current_user.id).all
+      @user_jogs = UserJog.where(user: current_user.id,deleted: 0).all
     end
   end
 
   # GET /user_jogs/1 or /user_jogs/1.json
   def show
+    unless current_user.user_group_id == "Admin" || @user_jog.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   # GET /user_jogs/new
@@ -26,7 +29,12 @@ class UserJogsController < ApplicationController
   # POST /user_jogs or /user_jogs.json
   def create
     @user_jog = UserJog.new(user_jog_params)
-
+    if ["Admin","Manager"].include? current_user.user_group_id
+      @user_jog.user_id = params[:user_jog][:user_id]
+    else
+      @user_jog.user_id = current_user.id
+    end
+    @user_jog.created_by = current_user.id
     respond_to do |format|
       if @user_jog.save
         format.html { redirect_to user_jog_url(@user_jog), notice: "User jog was successfully created." }
@@ -53,7 +61,7 @@ class UserJogsController < ApplicationController
 
   # DELETE /user_jogs/1 or /user_jogs/1.json
   def destroy
-    @user_jog.destroy
+    @user_jog.update(deleted: true, deleted_by: current_user.id, deleted_at: Time.now)
 
     respond_to do |format|
       format.html { redirect_to user_jogs_url, notice: "User jog was successfully destroyed." }
@@ -69,6 +77,6 @@ class UserJogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_jog_params
-      params.require(:user_jog).permit(:user_id, :jogging_date, :jogging_time, :distance, :created_by, :deleted, :deleted_by, :deleted_at, :)
+      params.require(:user_jog).permit(:user_id, :jogging_date, :jogging_time, :distance, :created_by, :deleted, :deleted_by, :deleted_at)
     end
 end
