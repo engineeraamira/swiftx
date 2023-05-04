@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       root 'users#homepage'
       resources :users
       resources :user_jogs
+      get 'reports' => 'user_jogs#reports'
       post 'auth_user' => 'authentication#authenticate'
       post 'add_user' => 'users#add_user'
 
