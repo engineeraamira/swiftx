@@ -74,9 +74,10 @@ class Api::V1::UserJogsController < ApiApplicationController
   # @apiHeader {String} Authorization Users unique access key.
   # @apiVersion 0.3.0
   # @apiName GetUserJogsReport
+  # @apiDescription retrieve users report with total jogging times in minutes and total distance in metre and the speed for each user filtered between any dates.
   # @apiGroup UserJogs
   # @apiExample Example usage:
-  #curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ZHZ4wk8HgGiyYqalNY-JG9gBTUjsoAQqfTMLVrUYxTs" -i http://localhost:3000/api/v1/reports?from_date="2023-05-01"\&to_date="2023-05-02"
+  # curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ZHZ4wk8HgGiyYqalNY-JG9gBTUjsoAQqfTMLVrUYxTs" -i http://localhost:3000/api/v1/reports?from_date="2023-05-01"\&to_date="2023-05-02"
   # @apiParam {Date}     from_date                  filter by from date.
   # @apiParam {Date}     to_date                    filter by to date.
   # @apiSuccess {String} email                      user's email.
