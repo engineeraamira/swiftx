@@ -204,7 +204,7 @@ class Api::V1::UsersController < ApiApplicationController
           @user.update(deleted: true)
           format.json { render json: "user deleted successfully" }
         else
-          format.json { render json: "you are not allowed to edit this user" }
+          format.json { render json: "you are not allowed to delete this user" }
         end
       end
     rescue =>e
